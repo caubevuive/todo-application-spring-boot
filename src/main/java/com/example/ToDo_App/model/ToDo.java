@@ -1,6 +1,8 @@
 package com.example.ToDo_App.model;
 
-import java.sql.Date;
+import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -14,12 +16,13 @@ import jakarta.persistence.Table;
 public class ToDo {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	@Column
 	private String title;
 
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date date;
 
 	private String status;
